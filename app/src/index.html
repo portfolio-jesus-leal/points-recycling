@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Configuración Oráculo</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto:400,700">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<style>
+    input {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-mi {
+        width: 30%;
+        align-items: center;
+        margin-top: 1.5rem;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .table-mi {
+        max-width: 75%;
+        width: 75%;
+        margin: auto;
+    }
+
+    .margin-bottom-mi {
+        margin-bottom: 1.5rem;
+    }
+
+    .margin-mi {
+        margin: 0.1rem;
+    }
+    
+    .padding-mi {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .w-40 {
+        width: 40% !important;
+    }
+    
+    .w-60 {
+        width: 60% !important;
+    }    
+
+    .w-100 {
+        width: 100% !important;
+    }
+
+    .btn-primary:disabled {
+        background-color: #A4A4A4;
+    }
+
+    .wrapper {
+		display: flex;
+	}
+
+</style>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-primary text-white">
+        <h4>Configuración Oráculo</h4>
+    </nav>
+
+    <div class="h-100 margin-mi">
+		
+		<div class="row">
+			<div class="col-sm-1 text-right"><b>Cuenta:</b></div>
+			<div class="col-sm-4" id="cuenta">0x000000000000000000000000000000</div>
+			<div class="col-sm-1 text-right"><b>Red:</b></div>
+			<div class="col-sm-1" id="red">unknow</div>
+			<div class="col-sm-1 text-right"><b>Estado:</b></div>
+			<div class="col-sm-4" id="status">Cargando...</div>
+		</div>
+
+        <div class="jumbotron margin-mi padding-mi col-md-12"> 
+
+            <div class="margin-bottom-mi">
+                <h4>Parámetros Asignación De Puntos</h4>
+            </div>
+
+            <div>
+
+                <div class="row">
+                    <div class="col-2">
+                        <strong></strong>
+                    </div>
+                    <div class="col-2">
+                        <strong>Puntos Actuales</strong>
+                    </div>
+                    <div class="col-2">
+                        <strong>Puntos Mínimos</strong>
+                    </div>
+                    <div class="col-2">
+                        <strong>Puntos Máximos</strong>
+                    </div>
+                    <div class="col-2">
+                        <strong>Precio Mínimo</strong>
+                    </div>
+                    <div class="col-2">
+                        <strong>Precio Máximo</strong>
+                    </div>                        
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        <strong>PET Pequeño</strong>
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="points1" value="1" class="form-control" readonly />
+                    </div>                    
+                    <div class="col-2">
+                        <input type="number" id="points-min1" value="1" required="" min="1" max="100" placeholder="Puntos mínimos" class="form-control" autofocus />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="points-max1" value="1" required="" min="1" max="100" placeholder="Puntos máximos" class="form-control" />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="price-min1" value="0" required="" min="0" max="10000" placeholder="Precio mínimo" class="form-control" />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="price-max1" value="0" required="" min="0" max="10000" placeholder="Precio mínimo" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        <strong>PET Grande</strong>
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="points2" value="1" class="form-control" readonly />
+                    </div>                    
+                    <div class="col-2">
+                        <input type="number" id="points-min2" value="1" required="" min="1" max="100" placeholder="Puntos mínimos" class="form-control" autofocus />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="points-max2" value="1" required="" min="1" max="100" placeholder="Puntos máximos" class="form-control" />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="price-min2" value="0" required="" min="0" max="10000" placeholder="Precio mínimo" class="form-control" readonly/>
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="price-max2" value="0" required="" min="0" max="10000" placeholder="Precio mínimo" class="form-control" readonly/>
+                    </div>
+                </div>     
+                
+                <div class="row">
+                    <div class="col-2">
+                        <strong>Latas</strong>
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="points3" value="1" class="form-control" readonly />
+                    </div>                    
+                    <div class="col-2">
+                        <input type="number" id="points-min3" value="1" required="" min="1" max="100" placeholder="Puntos mínimos" class="form-control" autofocus />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="points-max3" value="1" required="" min="1" max="100" placeholder="Puntos máximos" class="form-control" />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="price-min3" value="0" required="" min="0" max="10000" placeholder="Precio mínimo" class="form-control" />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="price-max3" value="0" required="" min="0" max="10000" placeholder="Precio mínimo" class="form-control" />
+                    </div>
+                </div>    
+
+                <div>
+                    <button id="updateButton1" onclick="App.updatePointValues()" class="btn btn-primary btn-lg btn-block btn-mi" disabled>Actualizar</button>
+                </div>
+
+            </div>   
+
+        </div>
+		
+		<div class="wrapper">
+		
+          <div class="jumbotron margin-mi padding-mi col-md-6">
+
+            <div class="text-center margin-bottom-mi">
+                <h4>Precios de Referencia Ether</h4>
+            </div>
+            
+            <div class="row">
+                <div class="col-3 text-center">
+                    <strong>Precio Mínimo</strong>
+                </div>
+                <div class="col-3">
+                    <input type="number" id="priceethmin" value="0" required="" min="0" max="1500" placeholder="Precio Ether mínimo" class="form-control" pattern="\d+"/>
+                </div>
+                <div class="col-3 text-center">
+                    <strong>Precio Máximo</strong>
+                </div>
+                <div class="col-3">
+                    <input type="number" id="priceethmax" value="0" required="" min="0" max="1500" placeholder="Precio Ether máximo" class="form-control" pattern="\d+"/>
+                </div>
+            </div>
+            
+            <div>
+                <button id="updateButton2" onclick="App.updateEthPrices()" class="btn btn-primary btn-lg btn-block btn-mi" disabled>Actualizar</button>
+            </div>
+
+          </div>
+		
+		  <div class="jumbotron margin-mi padding-mi col-md-6">
+
+            <div class="text-center margin-bottom-mi">
+                <h4>Incluir Dirección Admin</h4>
+            </div>
+                
+            <div class="row">
+				<div class="col-3 text-center">
+                    <strong>Address:</strong>
+                </div>
+                <div class="col-6">				
+					<input
+						class="w-100"
+						type="text"
+						value="";
+						id="address-admin"
+                        placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
+                        pattern="^0x[a-fA-F0-9]{40}$"
+                        maxlength="42"
+					/>
+				</div>
+            </div>
+
+            <div>
+                <button id="add-admin" onclick="App.addAdmin()" class="btn btn-primary btn-lg btn-block btn-mi" disabled>Agregar</button>
+            </div>
+          </div>
+		
+		</div>
+		
+		<div class="wrapper">
+		
+          <div class="jumbotron margin-mi padding-mi col-md-6">
+
+            <div class="text-center margin-bottom-mi">
+                <h4>Otros Parámetros</h4>
+            </div>
+                
+            <div>
+                <div class="row">
+                    <div class="col-7">
+                        <strong>Frecuencia actualización puntos:</strong>
+                    </div>
+                    <div class="col-3">
+                        <input type="number" id="blocks-period" value="40000" required="" min="1" max="100000" placeholder="Frecuencia (bloques) con que se deben actualizar los puntos" class="form-control" />
+                    </div>  
+                    <div class="col-1">
+                        <span>Bloques</span>
+                    </div> 
+                </div>
+
+                <div class="row">
+                    <div class="col-7">
+                        <strong>Frecuencia mínima ejecución oráculo:</strong>
+                    </div>
+                    <div class="col-3">
+                        <input type="number" id="blocks-request" value="60000" required="" min="1" max="100000" placeholder="Frecuencia (bloques) mínima para peticiones" class="form-control" />
+                    </div>
+                    <div class="col-1">
+                        <span>Bloques</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-7">
+                        <strong>Límite Gas (Bajo):</strong>
+                    </div>
+                    <div class="col-3">
+                        <input type="number" id="limit-gas-low" value="150000" required="" min="150000" max="1000000" placeholder="Frecuencia (bloques) con que se deben actualizar los puntos" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-7">
+                        <strong>Límite Gas (Medio):</strong>
+                    </div>
+                    <div class="col-3">
+                        <input type="number" id="limit-gas-med" value="200000" required="" min="200000" max="1000000" placeholder="Límite gas para queries con consumo medio" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-7">
+                        <strong>Límite Gas (Alto):</strong>
+                    </div>
+                    <div class="col-3">
+                        <input type="number" id="limit-gas-high" value="380000" required="" min="380000" max="1000000" placeholder="Límite gas para queries con consumo alto" class="form-control" />
+                    </div>
+                </div>
+
+                <div>
+                    <button id="updateButton3" onclick="App.updateOtherValues()" class="btn btn-primary btn-lg btn-block btn-mi" disabled>Actualizar</button>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="jumbotron margin-mi padding-mi col-md-6">
+            <div class="text-center margin-bottom-mi">
+                <h4>Información Oráculo</h4>
+            </div>
+            <div class="text-center">
+                <table class="table table-hover table-mi margin-bottom-mi" id="table-info2">
+                    <tr>
+                        <td class="w-60 text-left">Queries pendientes:</td>
+                        <td class="w-40 text-right"><b><span id="pending-queries">0</span></td>
+                    </tr>
+                    <tr>
+                        <td class="w-60 text-left">Saldo:</td>
+                        <td class="w-40 text-right"><b><span id="balance">0</span></td>
+                    </tr>
+                    <tr>
+                        <td class="w-60 text-left">Último control (bloque):</td>
+                        <td class="w-40 text-right"><b><span id="prev-block">0</span></td>
+                    </tr>
+                    <tr>
+                        <td class="w-60 text-left">Próximo control (bloque):</td>
+                        <td class="w-40 text-right"><b><span id="next-block">0</span></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="wrapper">
+                <div class="btn-mi">
+                    <button id="pauseButton" onclick="App.pause()" class="btn btn-primary btn-lg btn-block" disabled>Pause</button></div>
+                
+                <div class="btn-mi">
+                    <button id="checkButton" onclick="App.checkProcess()" class="btn btn-primary btn-lg btn-block" disabled>Actualizar</button></div>
+            </div>
+          </div>
+
+		</div>
+
+        <div class="margin-mi col-md-12">
+            <div class="text-center">
+            Dirección del contrato: <span id="contractAddress">0x000000000000000000000000000000</span>
+            </div>
+        </div>
+
+	</div>
+
+    <script src="oracle.js"></script>
+</body>
+</html>
